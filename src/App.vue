@@ -4,11 +4,40 @@
         <v-btn color="blue" @click="war1=1">clear</v-btn>
 
 
-        <p1>{{war1}}</p1>
 
-        <v-alert value="true" type="error">
-            This is a error alert.
-        </v-alert>
+
+<ul>
+
+    <li>
+        Alarm1: {{alarm1}}
+    </li>
+
+    <li>
+        Alarm2: {{alarm2}}
+    </li>
+
+    <li>
+        Alarm3: {{alarm3}}
+    </li>
+
+    <li>
+        Alarm4: {{alarm3}}
+    </li>
+
+    <li>
+        Alarm5: {{alarm3}}
+    </li>
+
+    <li>
+        Alarm6: {{alarm3}}
+    </li>
+
+</ul>
+
+Specialny kod: {{kod}}
+
+
+
 
 
         <v-footer :fixed="fixed" app>
@@ -19,26 +48,66 @@
 
 <script>
 
-    import TekstJson from './lj.json';
+    import TekstJson from './logij.json';
 
 
     export default {
         data() {
             return {
-                war1:0
+                war1:0,
+                alarm1:0,
+                alarm2:0,
+                alarm3:0,
+                alarm4:0,
+                alarm5:0,
+                alarm6:0,
+                odczyt1:0,
+                odczyt2:0,
+                odczyt3:0,
+                odczyt4:0,
+                odczyt5:0,
+                odczyt6:0,
+                kod:0,
+                iloscgazow:0,
+                rodgaz1:0,
+                rodgaz2:0,
+                rodgaz3:0,
+                rodgaz4:0,
+                rodgaz5:0,
+                rodgaz6:0,
+
             }
         },
+        created: function(){
+            this.alarm1 = TekstJson["0x0"]["holding-registers"][1];
+            this.alarm2 = TekstJson["0x0"]["holding-registers"][2];
+            this.alarm3 = TekstJson["0x0"]["holding-registers"][3];
+            this.alarm4 = TekstJson["0x0"]["holding-registers"][4];
+            this.alarm5 = TekstJson["0x0"]["holding-registers"][5];
+            this.alarm6 = TekstJson["0x0"]["holding-registers"][6];
+            this.odczyt1 = TekstJson["0x0"]["holding-registers"][7];
+            this.odczyt2 = TekstJson["0x0"]["holding-registers"][8];
+            this.odczyt3 = TekstJson["0x0"]["holding-registers"][9];
+            this.odczyt4 = TekstJson["0x0"]["holding-registers"][10];
+            this.odczyt5 = TekstJson["0x0"]["holding-registers"][11];
+            this.odczyt6 = TekstJson["0x0"]["holding-registers"][12];
+            this.kod = TekstJson["0x0"]["holding-registers"][13];
+            this.iloscgazow = TekstJson["0x0"]["holding-registers"][14];
+            this.rodgaz1 = TekstJson["0x0"]["holding-registers"][15];
+            this.rodgaz2 = TekstJson["0x0"]["holding-registers"][16];
+            this.rodgaz3 = TekstJson["0x0"]["holding-registers"][17];
+            this.rodgaz4 = TekstJson["0x0"]["holding-registers"][18];
+            this.rodgaz5 = TekstJson["0x0"]["holding-registers"][19];
+            this.rodgaz6 = TekstJson["0x0"]["holding-registers"][20];
+        },
+
+
+
         methods: {
             jso() {
 
-                // console.log(this.test2[0]["0x0"]["holding-registers"]);
-                console.log(TekstJson["0x0"]["holding-registers"][1]);
-                this.war1 = TekstJson["0x0"]["holding-registers"][1];
-                // console.log("test");
-                // console.log(TekstJson);
-                // console.log("parseon");
-                // this.obj = JSON.stringify(TekstJson);
-                // console.log(this.obj);
+
+
 
 
             }
