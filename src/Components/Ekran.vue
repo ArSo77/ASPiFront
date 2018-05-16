@@ -12,7 +12,18 @@ Oddział: Pnumologia<v-spacer></v-spacer>
                     <v-card dark :color="kolorki[rodzaje[i-1]]">
                         <v-card-text class="px-0">
 
-                           <h4> {{nazwaGazu[rodzaje[i-1]]}}</h4>
+                            <div v-if="symboleEnable">
+                                <h2> {{symbole[rodzaje[i-1]]}}</h2>
+                            </div>
+
+                            <div v-if="!symboleEnable">
+                                <h4> {{nazwaGazu[rodzaje[i-1]]}}</h4>
+                            </div>
+
+
+
+
+
 
                             <hr>
                             <v-spacer></v-spacer>
@@ -27,16 +38,11 @@ Oddział: Pnumologia<v-spacer></v-spacer>
 
                         </v-card-text>
 
-
                         <div v-if="alarmyEnable">
                         <v-alert :value="true" :type="nazwaAlertu[alarmy[i-1]]">
                             <h4> {{nazwaAlarmu[alarmy[i-1]]}} </h4>
                         </v-alert>
                         </div>
-
-
-
-
 
                     </v-card>
 
@@ -72,12 +78,14 @@ Oddział: Pnumologia<v-spacer></v-spacer>
                 kolorki: ['gray','red','gray','green','red','red','gray','red'],
                 nazwaGazu:['brak','Tlen','Podtlenek azotu','Próźnia','Dwutlenek węgla','Spręzone 5Bar','Spręzone 8Bar'],
                 nazwaAlarmu:['brak','Norma','Niskie','Wysokie','Zawór','AWARIA'],
-                nazwaAlertu:['success','success','warning','warning','warning',"error"]
+                nazwaAlertu:['success','success','warning','warning','warning',"error"],
+                symbole:['brak','O2','N20','VAC','CO2','A5','A8']
             }
         },
         props:{
           wartosciEnable: Boolean,
-          alarmyEnable: Boolean
+          alarmyEnable: Boolean,
+            symboleEnable: Boolean
         },
         created: function(){
 

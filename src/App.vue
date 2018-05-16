@@ -35,7 +35,7 @@
                 <v-flex v-for="i in 3" :key="`4${i}`" xs6>
                     <v-card dark color="primary">
                         <v-card-text class="px-0">
-                            <app-ekrany :wartosciEnable="wartosciEkran" :alarmyEnable="alarmyEkran"></app-ekrany>
+                            <app-ekrany :wartosciEnable="wartosciEkran" :alarmyEnable="alarmyEkran" :symboleEnable="symboleEkran"></app-ekrany>
                         </v-card-text>
                     </v-card>
                 </v-flex>
@@ -55,6 +55,7 @@
                 <img src="http://medicalonline.pl/files_med/606/581/t_39/20090216214059_Logo_as_1male_xl.jpg"
                      height="30" width="90"/>
                 <v-spacer></v-spacer>
+                <v-btn @click="symboleEkran=!symboleEkran">Symbole:{{symboleEkran}}</v-btn>
                 <v-btn @click="wartosciEkran=!wartosciEkran">Wartości:{{wartosciEkran}}</v-btn>
                 <v-btn @click="alarmyEkran=!alarmyEkran">Alarmy:{{alarmyEkran}}</v-btn>
 
@@ -74,7 +75,8 @@
             return {
                 test123: 41,
                 wartosciEkran:true,
-                alarmyEkran:true
+                alarmyEkran:true,
+                symboleEkran:true
             }
         },
 
