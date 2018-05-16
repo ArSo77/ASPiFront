@@ -4,15 +4,6 @@
         <v-btn color="blue" @click="war1=1">clear</v-btn>
 
 
-
-
-
-
-        <img src="http://medicalonline.pl/files_med/606/581/t_39/20090216214059_Logo_as_1male_xl.jpg" height="112" width="316"/>
-
-
-
-
         Alarmy:
         <ul>
             <li v-for="alarm in alarmy">
@@ -45,7 +36,7 @@
 
 <script>
 
-    import TekstJson from './logij.json';
+    import TekstJson from '../logij.json';
 
 
     export default {
@@ -61,7 +52,6 @@
         },
         created: function(){
 
-
             this.kod=TekstJson["0x0"]["holding-registers"][13];
             this.iloscgazow=TekstJson["0x0"]["holding-registers"][14];
 
@@ -69,28 +59,18 @@
             for(i=0;i<6;i++){
                 this.alarmy[i]=TekstJson["0x0"]["holding-registers"][i+1];
             }
-
             for(i=0;i<6;i++){
                 this.odczyty[i]=TekstJson["0x0"]["holding-registers"][i+7];
             }
-
             for(i=0;i<6;i++){
                 this.rodzaje[i]=TekstJson["0x0"]["holding-registers"][i+15];
             }
-
-
-
-
         },
 
 
 
         methods: {
             jso() {
-
-
-
-
 
             }
         }

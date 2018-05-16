@@ -3,75 +3,21 @@
 
 
     <v-app dark>
+        <!--<img src="http://medicalonline.pl/files_med/606/581/t_39/20090216214059_Logo_as_1male_xl.jpg" height="112" width="316"/>-->
 
-        <header>
-<v-layout align-center column>
-    <img src="http://medicalonline.pl/files_med/606/581/t_39/20090216214059_Logo_as_1male_xl.jpg" height="112" width="316"/>
-<v-spacer></v-spacer>
-</v-layout>
+MAIN APK
+        {{test}}
+        <v-btn @click="test+=1">Dodaj</v-btn>
 
-        </header>
-        <v-spacer></v-spacer>
-
-    <v-layout column align-center>
-
-
-    <v-btn color="blue" @click="jso">JSON</v-btn>
-        <v-btn color="blue" @click="war1=1">clear</v-btn>
-
-
-
-        <div>
-            <v-alert :value="true" type="success">
-                This is a success alert.
-            </v-alert>
-
-            <v-alert :value="true" type="info">
-                This is a info alert.
-            </v-alert>
-
-            <v-alert :value="true" type="warning">
-                This is a warning alert.
-            </v-alert>
-
-            <v-alert :value="true" type="error">
-                This is a error alert.
-            </v-alert>
-        </div>
-
-
-
-
-
-
-Alarmy:
-        <ul>
-            <li v-for="alarm in alarmy">
-                {{alarm}}
-            </li>
-        </ul>
-Odczyty:
-        <ul>
-            <li v-for="odczyt in odczyty">
-                {{odczyt}}
-            </li>
-        </ul>
-Rodzaje:
-        <ul>
-            <li v-for="rodzaj in rodzaje">
-                {{rodzaj}}
-            </li>
-        </ul>
-
-<p4>Specialny kod: {{kod}}</p4>
-        <p4>Ilość gazów: {{iloscgazow}}</p4>
-
-
-
+        <app-ekrany></app-ekrany>
+        <app-ekrany></app-ekrany>
 
 
         <v-footer :fixed="fixed" app>
+            <img src="http://medicalonline.pl/files_med/606/581/t_39/20090216214059_Logo_as_1male_xl.jpg" height="30" width="90"/>
+            <v-spacer></v-spacer>
             <span>&copy;2018</span>
+
         </v-footer>
         </v-layout>
     </v-app>
@@ -79,42 +25,30 @@ Rodzaje:
 
 <script>
 
-    import TekstJson from './logij.json';
-
+    import Ekran from './Components/Ekran'
 
     export default {
+
         data() {
             return {
-                war1:0,
-                kod:0,
-                iloscgazow:0,
-                alarmy:[],
-                odczyty:[],
-                rodzaje:[]
+                test:1,
             }
         },
+
+
+        components:{
+          appEkrany: Ekran
+        },
+
         created: function(){
-
-            this.kod=TekstJson["0x0"]["holding-registers"][13];
-            this.iloscgazow=TekstJson["0x0"]["holding-registers"][14];
-
-            var i=0;
-            for(i=0;i<6;i++){
-                this.alarmy[i]=TekstJson["0x0"]["holding-registers"][i+1];
-            }
-            for(i=0;i<6;i++){
-                this.odczyty[i]=TekstJson["0x0"]["holding-registers"][i+7];
-            }
-            for(i=0;i<6;i++){
-                this.rodzaje[i]=TekstJson["0x0"]["holding-registers"][i+15];
-            }
         },
 
 
         methods: {
-            jso() {
-
-            }
         }
+
+
+
+
     }
 </script>
