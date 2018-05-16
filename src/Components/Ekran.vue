@@ -75,7 +75,8 @@ Oddział: Pnumologia<v-spacer></v-spacer>
                 alarmy:[],
                 odczyty:[],
                 rodzaje:[],
-                kolorki: ['gray','red','gray','green','red','red','gray','red'],
+                kolorki: ['brak','cyan darken-1','green lighten-2','amber lighten-2','brown lighten-2','blue-grey lighten-3','blue-grey lighten-2'],
+                //Kody kolorów! https://vuetifyjs.com/en/style/colors#javascript-color-pack
                 nazwaGazu:['brak','Tlen','Podtlenek azotu','Próźnia','Dwutlenek węgla','Spręzone 5Bar','Spręzone 8Bar'],
                 nazwaAlarmu:['brak','Norma','Niskie','Wysokie','Zawór','AWARIA'],
                 nazwaAlertu:['success','success','warning','warning','warning',"error"],
@@ -114,9 +115,8 @@ Oddział: Pnumologia<v-spacer></v-spacer>
     }
 </script>
 
-<style scoped>
+<style lang="stylus">
+    $color-pack = false
 
-    .redd{
-        background-color: red;
-    }
+    @import '~vuetify/src/stylus/main'
 </style>
